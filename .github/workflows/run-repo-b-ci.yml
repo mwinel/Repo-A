@@ -1,0 +1,19 @@
+name: Run Repo-B CI Action
+on: push
+jobs:
+  do-something:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Checkout mwinel/Repo-B
+        uses: actions/checkout@v2
+        with:
+          repository: mwinel/Repo-B
+          ref: refs/heads/main
+          # GitHub's personal access token with access to `mwinel/Repo-B`
+          token: ${{ secrets.REPO_B_PAT }}
+          persist-credentials: false
+          path: ./.github/workflows/ci
+      - uses: ./.github/workflows/ci
+      - name: Last step
+        run: ...
