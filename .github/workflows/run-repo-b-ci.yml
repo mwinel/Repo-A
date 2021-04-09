@@ -4,16 +4,12 @@ jobs:
   do-something:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Checkout mwinel/Repo-B
+      - name: Check out repository
         uses: actions/checkout@v2
         with:
           repository: mwinel/Repo-B
-          ref: refs/heads/main
-          # GitHub's personal access token with access to `mwinel/Repo-B`
+          ref: v1.0
           token: ${{ secrets.REPO_B_PAT }}
-          persist-credentials: false
-          # path: .github/workflows/ci
-      - uses: .github/workflows/ci
-      - name: Last step
-        run: ...
+          path: ./.github/actions/Repo-B
+      - name: Run my action
+        uses: ./.github/actions/Repo-B/ci
