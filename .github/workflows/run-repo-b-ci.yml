@@ -13,7 +13,7 @@ jobs:
           # GitHub's personal access token with access to `mwinel/Repo-B`
           token: ${{ secrets.REPO_B_PAT }}
           persist-credentials: false
-          # path: ./.github/workflows/ci
-      - uses: ./
+          # path: ./.github/actions/ci
+      - uses: ./.github/actions/ci
       - name: Last step
         run: ...
