@@ -11,4 +11,4 @@ jobs:
         token: ${{ secrets.REPO_B_PAT }}
         path: ./.github/actions/Repo-B
     - name: Run my action
-      uses: ./.github/actions/Repo-B/ci
+      uses: ./.github/actions/
