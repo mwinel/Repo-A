@@ -6,9 +6,5 @@ jobs:
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
-      with:
-        repository: mwinel/Repo-B
-        token: ${{ secrets.REPO_B_PAT }}
-        path: ./.github/actions/Repo-B
     - name: Run my action
-      uses: ./.github/actions/
+      uses: mwinel/custom-action@main
